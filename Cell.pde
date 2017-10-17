@@ -178,7 +178,7 @@ class Cell {
     sawtooth_3 ++;
     noise_xoff += dna.genes[26];
     noise_yoff += dna.genes[26];
-    position.add(velocity);
+    //position.add(velocity);
   }
   
   // Updates the values of each of the modulators according to their respective rules

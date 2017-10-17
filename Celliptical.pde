@@ -7,7 +7,7 @@ Genepool gpl;            // A Genepool object called 'gpl'
 PImage img;              // A PImage object called 'img' (used when importing a source image)
 VideoExport videoExport; // A VideoExport object called 'videoExport' (used when exporting video)
 
-String batchName = "batch-163.00"; // Used to define the output folder
+String batchName = "batch-001.00"; // Used to define the output folder
 int maxCycles = 1; // How many
 int runCycle = 1;
 float cycleGen, cycleGenSin;
@@ -18,7 +18,7 @@ int maxFrames = 10000;
 int frameCounter;
 
 String iterationNum;
-String applicationName = "sandbox";
+String applicationName = "celliptical";
 //String inputFile = "flower.jpg"; // First run will use /data/input.png, which will not be overwritten
 String inputFile = "badger.jpg"; // First run will use /data/input.png, which will not be overwritten
 //String inputFile = "sushi.jpg"; // First run will use /data/input.png, which will not be overwritten
@@ -65,7 +65,7 @@ void setup() {
 void draw() {
   if (colony.population.size() == 0 || frameCounter <= 0 ) {manageColony();} // Criteria for terminating & restarting a colony
   if (gs.debug) {background(gs.bkgColor);} // Refresh the background on every frame to simplify debugging
-  //background(gs.bkgColor);
+  background(gs.bkgColor);
   colony.run(); // Update the colony
   //frameSave(); // Saves each frame as a .png (for GIFs etc.)
   //if (gs.makeMPEG) {videoExport.saveFrame();} // Use this to save every frame in the sketch

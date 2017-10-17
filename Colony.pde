@@ -91,11 +91,8 @@ class Colony {
     }
   }
   
-  
-  
-  
-  
   // 2) Spawn cells in a cartesian grid pattern
+  // Note: Does not use the value 'gs.seeds'
   void cartesian_pattern() {
     //vel = PVector.random2D();   // Initial velocity vector is random & unique for each cell
   
@@ -108,7 +105,8 @@ class Colony {
       
       for (int c = 0; c <= gs.cols; c++) {
         //int strain = int(random(gpl.numPredefined, gpl.numPredefined + gs.numStrains));
-        int strain = (n % gs.numStrains) + gpl.numPredefined;
+        //int strain = (n % gs.numStrains) + gpl.numPredefined;
+        int strain = gpl.numPredefined + 0; // Use the first random DNA in the genepool
         DNA dna = gpl.genepool.get(strain); // Get's a random strain of dna from the genepool (not a preset DNA)
         //DNA dna = gpl.genepool.get(0);          // Get's a specific strain of dna from the genepool
         dna.genes[0] = n;
@@ -138,13 +136,14 @@ class Colony {
         vel.normalize();
         vel.rotate(PI * map(cycleGen, -1, 1, 0, 2)); // Velocity is rotated 270 degrees (to be at right-angle to the radial 'spoke')
   
+        //Loop which seeds a qty. <gs.strainSize> of cells at the given position
         for (int s = 0; s < gs.strainSize; s ++) {
           //vel = PVector.random2D();   // Initial velocity vector is random & unique for each cell
           //if ( random(1) > 0.2) {population.add(new Cell(pos, vel, dna));
           //if (brightness(colorFromPixel) < 10) {population.add(new Cell(pos, vel, dna));}
           //if (saturation(colorFromPixel) > 3) {population.add(new Cell(pos, vel, dna));}
-          if (n <= gs.numStrains) {population.add(new Cell(pos, vel, dna));}
-          //population.add(new Cell(pos, vel, dna));
+          //if (n <= gs.numStrains) {population.add(new Cell(pos, vel, dna));}
+          population.add(new Cell(pos, vel, dna));
         }
       }
     }

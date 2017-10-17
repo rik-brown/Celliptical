@@ -39,7 +39,7 @@ class Genepool {
       genepool.add(new DNA(newgenes));
 
     }
-    // This for-loop calls the newDNA constructor 'gs.numStrains' times to make different DNA-strains & add them to the 'genepool' arraylist
+    // This for-loop calls the newDNA constructor <gs.numStrains> times to make different DNA-strains & add them to the 'genepool' arraylist
     // (they are also added to the .csv table, for posterity)
     for (int g = 0; g < gs.numStrains; g++) {
       DNA newDNA = new DNA(); // Create a new DNA object from the constructor template (id gene[0] will always be =0)
