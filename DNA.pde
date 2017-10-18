@@ -78,16 +78,16 @@ class DNA {
       //genes[2]= 240 + map(cycleGenSin, 0, 1, 0, 30);   // 2=fill_H_end
       //genes[2]= map(runCycle, 1, maxCycles, 360, 719);
 
-      genes[3]= 128;
+      genes[3]= 0;
       //genes[3]= random(130,180);   // 3=fill_S_start  
       //genes[3]= map(cycleGenSin, 0, 1, 0, 100);   // 3=fill_S_start
       //genes[3]= gs.bkg_S;   // 3=fill_S_start
-      genes[4]= 255;
+      genes[4]= 0;
       //genes[4]= map(cycleGenSin, 0, 1, 100, 255);   // 4=fill_S_end
       //genes[4]= gs.bkg_S;   // 4=fill_S_end
       //genes[4]= gs.bkg_S * random(0.5, 0.9);   // 4=fill_S_end
       
-      genes[5]= 128;
+      genes[5]= 255;
       //genes[5]= gs.bkg_B;   // 5=fill_B_start
       //genes[5]= map(cycleGenSin, 0, 1, 164, 200);   // 5=fill_B_start
       genes[6]= 255;
@@ -111,30 +111,30 @@ class DNA {
       genes[13]= 1;   // 13=stroke_B_start
       genes[14]= 1;   // 14=stroke_B_end
       
-      genes[15]= 2;   // 15=stroke_A_start
+      genes[15]= 255;   // 15=stroke_A_start
       //genes[15]= random(5.5, 16.3);   // 15=stroke_A_start
-      genes[16]= 15;   // 16=stroke_A_end
+      genes[16]= 255;   // 16=stroke_A_end
       
-      genes[17]= 0.2;   // 17=size_start. Range 0-1, % of gs.maxSize
+      genes[17]= 0.4;   // 17=size_start. Range 0-1, % of gs.maxSize
       //genes[17]= 500/((gs.rows)*random(1, 2));   // 17=size_start CARTESIAN GRID
       //genes[17]= (500/gs.rows)*0.5;   // 17=size_start CARTESIAN GRID
       //genes[17]= random(0.15, 0.4);   // 17=size_start
       
-      genes[18]= 0.5;   // 18=size_end. Range 0-1, % of genes[17]
+      genes[18]= 1.0;   // 18=size_end. Range 0-1, % of genes[17]
       //genes[18]= random(0.05, 0.25);   // 18=size_end
       
       //genes[19]= map(cycleGenSin, 0, 1, 100, 150);   // 19=flatness_start
-      genes[19]= random (1, 1.5);   // 19=flatness_start
+      genes[19]= random (1, 2.0);   // 19=flatness_start
       genes[20]= map(cycleGenSin, 0, 1, 1, 1.5);   // 20=flatness_end
       
       //genes[21]= map(cycleGenSin, 0, 1, -5, 5);   // 21=twist_start
-      genes[21]= random(-1, -1);   // 21=twist_start
+      //genes[21]= random(-1, -1);   // 21=twist_start
       //genes[22]= map(cycleGenSin, 0, 1, -3, 3);   // 22=twist_end
-      //genes[21]= 0; // 21=twist_start
-      //genes[22]= 0.8; // 22=twist_end
-      genes[22]= random(-1, 1);   // 22=twist_end
+      genes[21]= 0; // 21=twist_start
+      genes[22]= 0.8; // 22=twist_end
+      //genes[22]= random(-1, 1);   // 22=twist_end
 
-      genes[23]= 0.5;   // 23=noisePercent_start (range: 0-1)
+      genes[23]= 1.0;   // 23=noisePercent_start (range: 0-1)
       //genes[23]= random(0,100);   // 23=noisePercent_start
       genes[24]= 1;   // 24=noisePercent_End (range: 0-1)
       //genes[24]= random(0,100);   // 24=noisePercent_end
@@ -149,9 +149,7 @@ class DNA {
       //genes[28]= 1;
 
                   
-      genes[29]= 0.5;   // 29=fertility
-      //println("At " + frameCount + ", In DNA, genes[29]= " + genes[29]);
-      //genes[29]= random(0.65, 0.85);   // 29=fertility
+      genes[29]= 0;   // 29=fertility 0=Never fertile ***CAN BE RE-USED FOR noise_zOff***
       genes[30]= 0.6;   // 30=spawnLimit
       //genes[30]= random(0.1, 0.3);   // 30=spawnLimit
       //genes[31]= random(0.2, 0.6);   // 31=lifespan
