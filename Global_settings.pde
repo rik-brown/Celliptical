@@ -80,7 +80,7 @@ class Global_settings {
     //rows = int(random(1, 9));
     //rows = int(random(4,14));
     //rows = int(random(4,118));
-	  rows = 20;
+	  rows = 19;
     //cols = 14;
     cols = rows;
 

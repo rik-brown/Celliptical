@@ -294,7 +294,7 @@ class Cell {
     float h = (modulator(modulators[0], dna.genes[1], dna.genes[2])) % 255;
     float s = modulator(modulators[0], dna.genes[3], dna.genes[4]);
     float b = modulator(modulators[0], dna.genes[5], dna.genes[6]);
-    float a = modulator(modulators[0], dna.genes[7], dna.genes[8]);
+    float a = modulator(modulators[6], dna.genes[7], dna.genes[8]);
     fillColor = color(h, s, b, a); //fill colour is updated with new values
   }
   
