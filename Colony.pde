@@ -104,9 +104,9 @@ class Colony {
       //vel = PVector.fromAngle(0).mult(1);
       
       for (int c = 0; c <= gs.cols; c++) {
-        //int strain = int(random(gpl.numPredefined, gpl.numPredefined + gs.numStrains));
+        int strain = int(random(gpl.numPredefined, gpl.numPredefined + gs.numStrains));
         //int strain = (n % gs.numStrains) + gpl.numPredefined;
-        int strain = gpl.numPredefined + 0; // Use the first random DNA in the genepool
+        //int strain = gpl.numPredefined + 0; // Use the first random DNA in the genepool
         DNA dna = gpl.genepool.get(strain); // Get's a random strain of dna from the genepool (not a preset DNA)
         //DNA dna = gpl.genepool.get(0);          // Get's a specific strain of dna from the genepool
         dna.genes[0] = n;

@@ -42,7 +42,7 @@ class Cell {
   //PVector velocityNoise;
   PVector velocity;
   
-  float noise_xoff, noise_yoff; // x&y noise-offset
+  float noise_xoff, noise_yoff, noise_zoff, noise_soff; // x, y & z noise-offset
   
   float distanceFromHome;      // How far is the cell from it's home position?
   float distanceFromOrigin;      // How far is the cell from the arbitrary origin?
@@ -58,7 +58,7 @@ class Cell {
   // **************************************************CONSTRUCTOR********************************************************
   // CONSTRUCTOR: create a 'cell' object
   Cell (PVector pos, PVector vel, DNA dna_) {
-    modulators = new float[6]; // Each float holds value = 0.0 at this point
+    modulators = new float[8]; // Each float holds value = 0.0 at this point
     
     // OBJECTS
     dna = new DNA();
@@ -88,6 +88,8 @@ class Cell {
         
     noise_xoff = dna.genes[27]*1000; //Seed for noise-component (x)
     noise_yoff = dna.genes[28]*1000; //Seed for noise-component (y)
+    noise_zoff = dna.genes[29]*1000; //Seed for noise-component (z)
+    noise_soff = dna.genes[30]*1000; //Seed for noise-component (s)
     // velocity, velocityRef, noise_xoff & noise_yoff must all have values before updateModulators() can be run for first time
     updateModulators(); // Why would I want to do that now? To PRIME them for any following DNA-mods
     // Once updateModulators() has been run, velocity can be calculated correctly
@@ -131,8 +133,10 @@ class Cell {
     sawtooth_3_limit = ((dna.genes[31] * gs.maxLifespan) - age) * 0.25;
     updateSawteeth(); // Dependant on size
     
-    fertilityThreshold = dna.genes[29]; // How soon will the cell become fertile?
-    spawnLimit = dna.genes[30] * gs.maxSpawns; // Max. number of spawns
+    //fertilityThreshold = dna.genes[29]; // How soon will the cell become fertile?
+    fertilityThreshold = 0; // How soon will the cell become fertile?
+    //spawnLimit = dna.genes[30] * gs.maxSpawns; // Max. number of spawns
+    spawnLimit = 0; // Max. number of spawns
     
     if (gs.debug) {cellDNALogger();} //Print the DNA for this cell
   }
@@ -153,7 +157,7 @@ class Cell {
     updateShape();
     updateSawteeth();
     //updateStripe();
-    updateFertility();
+    //updateFertility();
     updateFillColor();
     updateStrokeColor();
     //updateFillColorByDirection();
@@ -162,7 +166,7 @@ class Cell {
     //updateStrokeColorByPosition();
     if (stripeON) {updateStripeColor();}
     updateStep();
-    updateNucleus();
+    //updateNucleus();
     display();
     //displayLine();
     //displayText();
@@ -178,6 +182,8 @@ class Cell {
     sawtooth_3 ++;
     noise_xoff += dna.genes[26];
     noise_yoff += dna.genes[26];
+    noise_zoff += dna.genes[26];
+    noise_soff += dna.genes[26];
     //position.add(velocity);
   }
   
@@ -189,6 +195,8 @@ class Cell {
     modulators[3] = map(PVector.angleBetween(velocityRef, velocity), 0, PI, 0, 1); // MODULATOR in updateVelocity()
     modulators[4] = noise(noise_xoff); // NOISE_X
     modulators[5] = noise(noise_yoff); // NOISE_Y
+    modulators[6] = noise(noise_zoff); // NOISE_Z
+    modulators[7] = noise(noise_soff); // NOISE_S
     
     // Examples from earlier experiments...
     //remoteness = sq(map(distanceFromHome, 0, lifespan, 0, 1)); // remoteness is a value between 0-1.
@@ -268,11 +276,11 @@ class Cell {
   }
 
   void updateSize() {
-    r = modulator(modulators[0], dna.genes[17], dna.genes[17] * dna.genes[18]) * gs.maxSize;
+    r = modulator(modulators[6], dna.genes[17], dna.genes[17] * dna.genes[18]) * gs.maxSize;
   }
 
   void updateShape() {
-  flatness = modulator(modulators[0], dna.genes[19], dna.genes[20]);
+  flatness = modulator(modulators[7], dna.genes[19], dna.genes[20]);
   }
   
   void updateFertility() {
@@ -454,7 +462,7 @@ void displayLine() {
     if (age >= dna.genes[31] * gs.maxLifespan) {return true;} // Death by old age (regardless of size, which may remain constant)
     if (r < dna.genes[17]*dna.genes[18]*gs.maxSize) {return true;} // Death by too little size
     //if (r > (width*0.1)) {return true;} // Death by too much size
-    if (spawnLimit <= 0) {return true;} // Death by too much babies
+    //if (spawnLimit <= 0) {return true;} // Death by too much babies
     //if (position.x > width + r * dna.genes[19] || position.x < -r * dna.genes[19] || position.y > height + r * dna.genes[19] || position.y < -r * dna.genes[19] {return true;} // Death if move beyond canvas boundary
     if (position.x > width || position.x < 0 || position.y > height || position.y < 0) {return true;} // Death if move beyond border
     else { return false; }

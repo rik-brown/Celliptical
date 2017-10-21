@@ -42,9 +42,10 @@ void setup() {
   getReady(); // Create the colony
   //size(200, 200);
   //size(400, 400);
-  size(500, 500);
+  //size(500, 500);
   //size(800, 800);
   //size(1000, 1000);
+  size(768, 768);
   //size(1500, 1500);
   //size(2048, 2048);
   //size(4000, 4000);

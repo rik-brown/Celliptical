@@ -68,7 +68,7 @@ class Global_settings {
 
     //numStrains = number of DNA strains added to the genepool using the DNA constructor
     //numStrains = int(random(1, 4));
-    numStrains = 1;
+    numStrains = 100;
     //strainSize = number of cells created from a given DNA strain
     //strainSize = int(random(2,5));
     strainSize = 1;
@@ -80,7 +80,7 @@ class Global_settings {
     //rows = int(random(1, 9));
     //rows = int(random(4,14));
     //rows = int(random(4,118));
-	  rows = 30;
+	  rows = 20;
     //cols = 14;
     cols = rows;
 
@@ -101,7 +101,7 @@ class Global_settings {
     //bkg_S = random(128,164);
     bkg_S = 0; // last 105, 55, 255, 225
     //bkg_B = random(120,180);
-    bkg_B = 210; // last 160, 50, 128, 255
+    bkg_B = 0; // last 160, 50, 128, 255
     bkgColor = color(bkg_H, bkg_S, bkg_B);
     //bkgColor = 0; // Black
     //bkgColor = 360; // White
@@ -111,8 +111,8 @@ class Global_settings {
     nucleusColorF = color(0, 255, 0, 255); // Black
 
     //maxSize = width * random(0.3, 0.5);
-    maxSize = width * 0.01;
-    maxLifespan = width * 2;
+    maxSize = width / rows;
+    maxLifespan = width * 20;
     //maxLifespan = random(1000, 2000);
     maxSpawns = 10;
 
