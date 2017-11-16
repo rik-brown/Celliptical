@@ -358,7 +358,7 @@ class Cell {
     translate(position.x, position.y);
     float angle = velocity.heading();
     rotate(angle);
-    if (drawCellON) {drawSomething(fillColor, strokeColor, r, r*flatness, 1);}
+    if (drawCellON) {drawSomething(fillColor, strokeColor, r, r*flatness, 2);}
     //if (drawNucleusON) {updateNucleusColor(); drawSomething(fillColor, strokeColor, r*0.1, r*0.1, 1);}
     //if (drawNucleusON) {updateNucleusColor(); drawSomething(strokeColor, fillColor, r*0.1, r*0.1, 1);}
     popMatrix(); 
@@ -371,6 +371,7 @@ class Cell {
     if (type == 1) {ellipse(0, 0, xSize, ySize);}
     if (type == 2) {rect(0, 0, xSize, ySize);}
     if (type == 3) {point(0, 0);}
+    if (type == 4) {line(0, 0, xSize, ySize);}
   }
 
 void displayLine() {
