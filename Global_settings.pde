@@ -68,7 +68,7 @@ class Global_settings {
 
     //numStrains = number of DNA strains added to the genepool using the DNA constructor
     //numStrains = int(random(1, 4));
-    numStrains = 100;
+    numStrains = 1;
     //strainSize = number of cells created from a given DNA strain
     //strainSize = int(random(2,5));
     strainSize = 1;
@@ -80,7 +80,7 @@ class Global_settings {
     //rows = int(random(1, 9));
     //rows = int(random(4,14));
     //rows = int(random(4,118));
-	  rows = 39;
+	  rows = 10;
     //cols = 14;
     cols = rows;
 
