@@ -58,7 +58,7 @@ class Global_settings {
     savePNG = true;
     makePDF = false;
     makeGIF = false;
-    makeMPEG = false;
+    makeMPEG = true;
 
     borderWidth = 0.5;
     borderHeight = 0.5;

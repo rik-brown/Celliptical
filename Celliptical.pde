@@ -13,7 +13,7 @@ int runCycle = 1;
 float cycleGen, cycleGenSin;
 
 
-int maxFrames = 10000;
+int maxFrames = 1000;
 //int maxFrames = int(random(1300,1600));
 int frameCounter;
 
@@ -68,8 +68,8 @@ void draw() {
   if (gs.debug) {background(gs.bkgColor);} // Refresh the background on every frame to simplify debugging
   background(gs.bkgColor);
   colony.run(); // Update the colony
-  //frameSave(); // Saves each frame as a .png (for GIFs etc.)
-  //if (gs.makeMPEG) {videoExport.saveFrame();} // Use this to save every frame in the sketch
+  frameSave(); // Saves each frame as a .png (for GIFs etc.)
+  if (gs.makeMPEG) {videoExport.saveFrame();} // Use this to save every frame in the sketch
   frameCounter --;
 }
 
@@ -79,7 +79,7 @@ void manageColony() {
   if (gs.makeGIF) {saveFrame(screendumpPathGIF1);saveFrame(screendumpPathGIF2);} // Save an image plus a duplicate image with alternative iteration number
   //saveFrame("/data/output.png"); // Save a duplicate image to the /data folder to be used in next iteration
   if (gs.makePDF) {endRecord();} // If I'm in PDF-mode, complete & close the file
-  if (gs.makeMPEG) {videoExport.saveFrame();} // If in MPEG mode, save one frame per iteration to the file
+  //if (gs.makeMPEG) {videoExport.saveFrame();} // If in MPEG mode, save one frame per iteration to the file
   endSettingsFile(); // Complete the settings logfile & close
   //exit();
   // If all iterations are completed:
