@@ -80,7 +80,7 @@ class Global_settings {
     //rows = int(random(1, 9));
     //rows = int(random(4,14));
     //rows = int(random(4,118));
-	  rows = 10;
+	  rows = 40;
     //cols = 14;
     cols = rows;
 
@@ -111,7 +111,7 @@ class Global_settings {
     nucleusColorF = color(0, 255, 0, 255); // Black
 
     //maxSize = width * random(0.3, 0.5);
-    maxSize = width / rows;
+    maxSize = width / (rows*1.1);
     maxLifespan = width * 20;
     //maxLifespan = random(1000, 2000);
     maxSpawns = 10;

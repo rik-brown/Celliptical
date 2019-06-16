@@ -7,13 +7,13 @@ Genepool gpl;            // A Genepool object called 'gpl'
 PImage img;              // A PImage object called 'img' (used when importing a source image)
 VideoExport videoExport; // A VideoExport object called 'videoExport' (used when exporting video)
 
-String batchName = "batch-001.00"; // Used to define the output folder
-int maxCycles = 1; // How many
+String batchName = "batch-001.02"; // Used to define the output folder
+int maxCycles = 10; // How many
 int runCycle = 1;
 float cycleGen, cycleGenSin;
 
 
-int maxFrames = 1000;
+int maxFrames = 100;
 //int maxFrames = int(random(1300,1600));
 int frameCounter;
 
@@ -68,7 +68,7 @@ void draw() {
   if (gs.debug) {background(gs.bkgColor);} // Refresh the background on every frame to simplify debugging
   background(gs.bkgColor);
   colony.run(); // Update the colony
-  frameSave(); // Saves each frame as a .png (for GIFs etc.)
+  //frameSave(); // Saves each frame as a .png (for GIFs etc.)
   if (gs.makeMPEG) {videoExport.saveFrame();} // Use this to save every frame in the sketch
   frameCounter --;
 }

@@ -58,7 +58,7 @@ class Cell {
   // **************************************************CONSTRUCTOR********************************************************
   // CONSTRUCTOR: create a 'cell' object
   Cell (PVector pos, PVector vel, DNA dna_) {
-    modulators = new float[8]; // Each float holds value = 0.0 at this point
+    modulators = new float[9]; // Each float holds value = 0.0 at this point
     
     // OBJECTS
     dna = new DNA();
@@ -197,6 +197,7 @@ class Cell {
     modulators[5] = noise(noise_yoff); // NOISE_Y
     modulators[6] = noise(noise_zoff); // NOISE_Z
     modulators[7] = noise(noise_soff); // NOISE_S
+    modulators[8] = noise(noise_xoff, noise_yoff); // NOISE_XY
     
     // Examples from earlier experiments...
     //remoteness = sq(map(distanceFromHome, 0, lifespan, 0, 1)); // remoteness is a value between 0-1.
@@ -276,7 +277,8 @@ class Cell {
   }
 
   void updateSize() {
-    r = modulator(modulators[6], dna.genes[17], dna.genes[17] * dna.genes[18]) * gs.maxSize;
+    //r = modulator(modulators[6], dna.genes[17], dna.genes[17] * dna.genes[18]) * gs.maxSize;
+    r = modulator(modulators[8], dna.genes[17], dna.genes[17] * dna.genes[18]) * gs.maxSize;
   }
 
   void updateShape() {
@@ -291,8 +293,8 @@ class Cell {
   
   void updateFillColor() {
     // START > END
-    float h = (modulator(modulators[0], dna.genes[1], dna.genes[2])) % 255;
-    float s = modulator(modulators[0], dna.genes[3], dna.genes[4]);
+    float h = (modulator(modulators[8], dna.genes[1], dna.genes[2])) % 255;
+    float s = modulator(modulators[8], dna.genes[3], dna.genes[4]);
     float b = modulator(modulators[0], dna.genes[5], dna.genes[6]);
     float a = modulator(modulators[6], dna.genes[7], dna.genes[8]);
     fillColor = color(h, s, b, a); //fill colour is updated with new values
@@ -300,7 +302,7 @@ class Cell {
   
   void updateStrokeColor() {
     // START > END
-    float h = (modulator(modulators[0], dna.genes[9], dna.genes[10])) % 255;
+    float h = (modulator(modulators[8], dna.genes[9], dna.genes[10])) % 255;
     float s = modulator(modulators[0], dna.genes[11], dna.genes[12]);
     float b = modulator(modulators[0], dna.genes[13], dna.genes[14]);
     float a = modulator(modulators[0], dna.genes[15], dna.genes[16]);

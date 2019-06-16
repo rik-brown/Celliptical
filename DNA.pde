@@ -78,24 +78,24 @@ class DNA {
       //genes[2]= 240 + map(cycleGenSin, 0, 1, 0, 30);   // 2=fill_H_end
       //genes[2]= map(runCycle, 1, maxCycles, 360, 719);
 
-      genes[3]= 0;
+      genes[3]= 255;
       //genes[3]= random(130,180);   // 3=fill_S_start  
       //genes[3]= map(cycleGenSin, 0, 1, 0, 100);   // 3=fill_S_start
       //genes[3]= gs.bkg_S;   // 3=fill_S_start
-      genes[4]= 0;
+      genes[4]= 128;
       //genes[4]= map(cycleGenSin, 0, 1, 100, 255);   // 4=fill_S_end
       //genes[4]= gs.bkg_S;   // 4=fill_S_end
       //genes[4]= gs.bkg_S * random(0.5, 0.9);   // 4=fill_S_end
       
-      genes[5]= 0;
+      genes[5]= 255;
       //genes[5]= gs.bkg_B;   // 5=fill_B_start
       //genes[5]= map(cycleGenSin, 0, 1, 164, 200);   // 5=fill_B_start
-      genes[6]= 0;
+      genes[6]= 255;
       //genes[6]= map(cycleGenSin, 0, 1, 255,64);   // 6=fill_B_end
       //genes[6]= gs.bkg_B * random(0.9, 1.1);   // 6=fill_B_end
       //genes[6]= gs.bkg_B * 0.5;   // 6=fill_B_end
       
-      genes[7]= 128;   // 7=fill_A_start
+      genes[7]= 255;   // 7=fill_A_start
       genes[8]= 255;   // 8=fill_A_end
       
       genes[9]= 0;   // 9=stroke_H_start
@@ -113,7 +113,7 @@ class DNA {
       
       genes[15]= 128;   // 15=stroke_A_start
       //genes[15]= random(5.5, 16.3);   // 15=stroke_A_start
-      genes[16]= 255;   // 16=stroke_A_end
+      genes[16]= 128;   // 16=stroke_A_end
       
       genes[17]= 0.8;   // 17=size_start. Range 0-1, % of gs.maxSize
       //genes[17]= 500/((gs.rows)*random(1, 2));   // 17=size_start CARTESIAN GRID
@@ -125,7 +125,7 @@ class DNA {
       
       //genes[19]= map(cycleGenSin, 0, 1, 100, 150);   // 19=flatness_start
       //genes[19]= random (1, 2.0);   // 19=flatness_start
-      genes[19]= 1;   // 19=flatness_start
+      genes[19]= 0.3;   // 19=flatness_start
       //genes[20]= random (1, 2.0);
       genes[20]= 1;
       //genes[20]= map(cycleGenSin, 0, 1, 1, 1.5);   // 20=flatness_end
